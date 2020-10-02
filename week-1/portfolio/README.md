@@ -3,7 +3,7 @@
 <b>Today we'll cover some of the basics of HTML, CSS, and Javascript by building out a portfolio page!</b>
 The end result will look something like the below:
 
-<img /> 
+![](portfolio-final.gif)
 
 To minimize setup on your personal computer, we'll use an online editor called codepen. Click this <a href='https://codepen.io/'>link<a/> and on the far left pane,
 click the <b>Pen</b> dropdown and click on the first option <b>Pen</b> to create your new project. You should see three tabs for <b>HTML</b>, <b>CSS</b> and <b>JS</b> 
@@ -258,7 +258,7 @@ Beautiful! We're starting to see somewhat of a page here, nice! Onto the project
 
 ## Projects
 
-### HTML for Projects
+### HTML for the Projects section
 Let's add an <b>id</b> of "projects" as well as two <b>classes</b>: "section" and "projects" to our `section`.
 Inside the projects section:
 - let's add an `h1` with a <b>class</b> of "projects-header" and some text "These are some of my projects"
@@ -272,7 +272,9 @@ We'll add 4 "project-cards" to the "projects-container". We'll represent each of
       <div class="project-img-container">
         <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
       </div>
-      <p class="project-title">Title</p>
+      <div class="project-title">
+        <p>Title</p>
+      </div>
     </div>
 ...
 ```
@@ -286,31 +288,77 @@ Our complete HTML for this section will now look like this:
           <div class="project-img-container">
             <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
           </div>
-          <p class="project-title">Title</p>
+          <div class="project-title">
+            <p>Title</p>
+          </div>
         </div> <!-- END project-card -->
         
         <div class="project-card"> <!-- Start project-card -->
           <div class="project-img-container">
             <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
           </div>
-          <p class="project-title">Title</p>
+          <div class="project-title">
+            <p>Title</p>
+          </div>
         </div> <!-- END project-card -->
         
         <div class="project-card"> <!-- Start project-card -->
           <div class="project-img-container">
             <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
           </div>
-          <p class="project-title">Title</p>
+          <div class="project-title">
+            <p>Title</p>
+          </div>
         </div> <!-- END project-card -->
         
         <div class="project-card"> <!-- Start project-card -->
           <div class="project-img-container">
             <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
           </div> 
-          <p class="project-title">Title</p>
+          <div class="project-title">
+            <p>Title</p>
+          </div>
         </div> <!-- END project-card -->
       </div> <!-- END projects-container -->
     </section> <!-- End Projects -->
 ...
 ```
+Great! Now for some styles!
+
+### CSS for the Projects section
+
+Let's do this piece by piece.
+<b>`.section.projects`</b>
+We know that we want everything centered in the section, a blue background and a little space. So we can use flexbox to get this layout and pass in our color variable plus add in some padding.
+We'll add the following to our CSS:
+```CSS
+.section.projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 25px;
+  background-color: var(--main-blue);
+}
+```
+<b>`.section.projects .projects-header`</b>
+The header is pretty straight forward. We see that there is a line under the header. We'll use a `border-bottom` CSS <b>property</b> to accomplish this.
+We'll also create and use a new variable for the header font size "--h1-font-size" and add this to our `:root` css element. While we're at it, let's add another variable for `p`, and call it `--p-font-size`:
+
+```CSS
+:root {
+ ...
+  --h1-font-size: 38px;
+  --p-font-size: 24px;
+}
+...
+...
+.section.projects .projects-header {
+  color: var(--main-white);
+  font-size: var(--h1-font-size);
+  margin: 0 auto 40px auto;
+  border-bottom: 4px solid var(--main-white);
+}
+```
+
 
