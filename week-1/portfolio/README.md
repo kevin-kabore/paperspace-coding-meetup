@@ -171,18 +171,146 @@ Beautiful. Now let's switch back to HTML and add in content for the About Sectio
 ## About Section
 
 ### HTML for the About Section
-- Add an `id` <b>property</b> of value "about" as well as a `class` <b>property</b> of "section about" to the opening `section`tag:  
+Add an `id` <b>property</b> of value "about" as well as a `class` <b>property</b> of "section about" to the opening `section`tag:  
 `<section id="about" class="section about">`
-- Inside the about `section` tag. Add an `h1` tag, a "self-closing" `img` tag with an `alt` <b>property</b> and `src` <b>property</b>, as well as a `p` tag. 
-- Give the `img` `alt` property a `value` of "Profile picture" and give the `src` property a value of "https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"
+Inside the about `section` tag:
+1. Add an `h1` tag with text inside "Hi, my name is X"
+2. Add an opening and closing `div` with a <b>class name</b> of "profile-pic". 
+3. Inside the `div`, add a "self-closing" `img` tag with an `alt` <b>property</b> and `src` <b>property</b>
+4. Give the `img` `alt` property a `value` of "Profile picture" and give the `src` property a value of "https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"
+5. Add a `p` tag with some text "I'm a web developer now!"
 
-Your about section will look like the below:
+Your about section will look something like this:
 ```HTML
 ...
   <section id="about" class="section about"> <!-- Start About -->
       <h1>Hi, my name is Kevin</h1>
-      <img alt="Profile pic" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
-      <p>I'm a Frontend Engineer at Paperspace!</a>
-  </section> <!-- END About -->
+      <div class="profile-pic">
+        <img alt="Profile pic" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+      </div>
+      <p>I'm a Frontend Engineer at Paperspace!</p>
+    </section> <!-- END About -->
 ...
 ```
+
+We'll use the id property to scroll to when we click on our menu items with a little trick. And we'll use the classes we added for styling purposes. `<div>` stands for "division" and is often used to group related elements similar to the section tag. In this case, we'll use it to set the size of our image.
+
+
+### CSS for the About Section
+Great, Now let's get into some CSS. I'll give you the CSS code snippet and explain it below. I suggesst adding each line one by one and seeing how it affects your section :) 
+```CSS
+.section {
+  padding: 20px 25px;
+}
+
+.section.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  background-image: linear-gradient(to top right, #3a3d40, #181719);
+}
+
+.section.about h1 {
+  color: var(--main-white);
+  font-size: 38px; 
+  margin-bottom: 16px;
+}
+
+.section.about .profile-pic {
+  width: 225px;
+  margin: 0 auto;
+}
+
+.section.about .profile-pic img {
+  width: 100%;
+  height: auto;
+}
+
+.section.about p {
+  font-size: 24px;
+  margin-top: 16px;
+  color: var(--main-red)
+}
+```
+<b>`.section`</b>  
+First we start off by adding some <b>padding</b> of 20px to the top and bottom, and 25px to the left and right of the section. We'll add this class to other sections as well. This gives us some smooth spacing so our elements don't touch the edges of the section.  
+
+<b>`.section.about`</b>   
+This targets any elements that have a class of "section" <b>and</b> a class of "about".  
+The first four lines are <b><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS flexbox</a></b> properties. 
+By line we're: "enabling a <b>flex</b> context for all the direct children of `.section.about`", as a <b>column</b> (default row). We're then going to <b>justify</b> all the content center and align all the items in the center as well.  
+Then we'll set a <b>width</b> of 100% so items are truly in the center. We'll also give the about section a <b>height</b> of 100vh meaning 100% of the "view height".  
+Lastly we'll give the section a <b>background-color</b> of black, and use a trick to add a linear-gradient "to the top right" using the <b>background-image</b> CSS property. The gradient will go from color `#3a3d40` in bottom left to `#181719` in the top right.
+
+<b>`.section.about h1`</b>
+This references the heading 1 of our about section.  We'll add a <b>color</b> equal to our variable of "--main-white", a font-size and a margin at the bottom.
+
+<b>`.section.about .profile-pic` and `.section.about .profile-pic img`</b> 
+This is the `div` that we added for our image. What we're doing here is a common trick to have "responsive" images. Instead of setting the width on the image directly, we'll give it a <b>width</b> of 100% and <b>height</b> of auto. Then use the `div` to set a specific width. `margin: 0 auto` is also a common trick for centering content horizontally.
+
+the styles for the paragraph should be looking a little more familiar now. Just adding some font size, a margin at the top and a color :) 
+
+Beautiful! We're starting to see somewhat of a page here, nice! Onto the projects section!
+
+## Projects
+
+### HTML for Projects
+Let's add an <b>id</b> of "projects" as well as two <b>classes</b>: "section" and "projects" to our `section`.
+Inside the projects section:
+- let's add an `h1` with a <b>class</b> of "projects-header" and some text "These are some of my projects"
+- Add a `div` with a <b>class</b> of "projects-container". We'll use this to contain our cards for all of our projects.
+
+Now, I know we don't have any projects yet - but let's lay this out with some dummy projects for now. 
+We'll add 4 "project-cards" to the "projects-container". We'll represent each of them like this, with the same image we used on the profile for now: 
+```HTML
+...
+    <div class="project-card">
+      <div class="project-img-container">
+        <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+      </div>
+      <p class="project-title">Title</p>
+    </div>
+...
+```
+Our complete HTML for this section will now look like this:
+```HTML
+...
+    <section id="projects" class="section projects"> <!-- Start Projects -->
+      <h1 class="projects-header">These are some of my projects</h1>
+      <div class="projects-container"> <!-- Start projects-container -->
+        <div class="project-card"> <!-- Start project-card -->
+          <div class="project-img-container">
+            <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+          </div>
+          <p class="project-title">Title</p>
+        </div> <!-- END project-card -->
+        
+        <div class="project-card"> <!-- Start project-card -->
+          <div class="project-img-container">
+            <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+          </div>
+          <p class="project-title">Title</p>
+        </div> <!-- END project-card -->
+        
+        <div class="project-card"> <!-- Start project-card -->
+          <div class="project-img-container">
+            <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+          </div>
+          <p class="project-title">Title</p>
+        </div> <!-- END project-card -->
+        
+        <div class="project-card"> <!-- Start project-card -->
+          <div class="project-img-container">
+            <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+          </div> 
+          <p class="project-title">Title</p>
+        </div> <!-- END project-card -->
+      </div> <!-- END projects-container -->
+    </section> <!-- End Projects -->
+...
+```
+
