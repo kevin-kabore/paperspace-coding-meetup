@@ -1,6 +1,6 @@
 # Portfolio Page
 
-<b>Today we'll cover some of the basics of HTML, CSS, and Javascript by building out a portfolio page!</b>
+<b>Today we'll cover some of the basics of HTML, CSS, and Javascript by building out a portfolio page!</b>   
 The end result will look something like the below:
 
 ![](portfolio-final.gif)
@@ -246,10 +246,10 @@ By line we're: "enabling a <b>flex</b> context for all the direct children of `.
 Then we'll set a <b>width</b> of 100% so items are truly in the center. We'll also give the about section a <b>height</b> of 100vh meaning 100% of the "view height".  
 Lastly we'll give the section a <b>background-color</b> of black, and use a trick to add a linear-gradient "to the top right" using the <b>background-image</b> CSS property. The gradient will go from color `#3a3d40` in bottom left to `#181719` in the top right.
 
-<b>`.section.about h1`</b>
+<b>`.section.about h1`</b>  
 This references the heading 1 of our about section.  We'll add a <b>color</b> equal to our variable of "--main-white", a font-size and a margin at the bottom.
 
-<b>`.section.about .profile-pic` and `.section.about .profile-pic img`</b> 
+<b>`.section.about .profile-pic` and `.section.about .profile-pic img`</b>   
 This is the `div` that we added for our image. What we're doing here is a common trick to have "responsive" images. Instead of setting the width on the image directly, we'll give it a <b>width</b> of 100% and <b>height</b> of auto. Then use the `div` to set a specific width. `margin: 0 auto` is also a common trick for centering content horizontally.
 
 the styles for the paragraph should be looking a little more familiar now. Just adding some font size, a margin at the top and a color :) 
@@ -259,8 +259,8 @@ Beautiful! We're starting to see somewhat of a page here, nice! Onto the project
 ## Projects
 
 ### HTML for the Projects section
-Let's add an <b>id</b> of "projects" as well as two <b>classes</b>: "section" and "projects" to our `section`.
-Inside the projects section:
+Let's add an <b>id</b> of "projects" as well as two <b>classes</b>: "section" and "projects" to our `section`.   
+Inside the projects section:   
 - let's add an `h1` with a <b>class</b> of "projects-header" and some text "These are some of my projects"
 - Add a `div` with a <b>class</b> of "projects-container". We'll use this to contain our cards for all of our projects.
 
@@ -327,8 +327,8 @@ Great! Now for some styles!
 
 ### CSS for the Projects section
 
-Let's do this piece by piece.
-<b>`.section.projects`</b>
+Let's do this piece by piece.   
+<b>`.section.projects`</b>  
 We know that we want everything centered in the section, a blue background and a little space. So we can use flexbox to get this layout and pass in our color variable plus add in some padding.
 We'll add the following to our CSS:
 ```CSS
@@ -341,7 +341,7 @@ We'll add the following to our CSS:
   background-color: var(--main-blue);
 }
 ```
-<b>`.section.projects .projects-header`</b>
+<b>`.section.projects .projects-header`</b>  
 The header is pretty straight forward. We see that there is a line under the header. We'll use a `border-bottom` CSS <b>property</b> to accomplish this.
 We'll also create and use a new variable for the header font size "--h1-font-size" and add this to our `:root` css element. While we're at it, let's add another variable for `p`, and call it `--p-font-size`:
 
@@ -360,5 +360,81 @@ We'll also create and use a new variable for the header font size "--h1-font-siz
   border-bottom: 4px solid var(--main-white);
 }
 ```
+<b>`.section.projects .projects-container`</b>  
+Let's use flex box again to lay these out and center them:
+```CSS
+...
+.section.projects .projects-container {
+  display: flex;
+  justify-content: center;
+}
+```
+Now for each project card.  
+<b>`.project-card`</b>   
+Let's center everything in the card. Get some spacing in between each card with margin, and make sure all the text is our white variable.
+```CSS
+...
+/* Project card styles start */
+.project-card {
+  text-align: center;
+  margin: 0 16px;
+  color: var(--main-white);
+}
+```
+Nice. Now let's make the text change color to blue when we hover over a card, and give the user an indication that this will be clickable (in the future):
+```CSS
+...
+.project-card:hover {
+  color: var(--main-red);
+  cursor: pointer;
+}
+```
+Sweet. Now let's make our image a little bigger by having the div control all the sizing. We'll give the image a `width` of 100% and a `height` of auto:
+```CSS
+.project-card .project-img-container {
+  width: 250px;
+}
+.project-card .project-img-container img {
+  width: 100%;
+  height: auto;
+}
+```
+And finally for our project title! Let's create a slightly transparent box to contain this for presentation.  
+We'll give this box a half opaque or transparent `background-color`, and add some `padding`.  
+We notice there's a tiny bit of space below the image, so we'll move up the text box a few pixels with a negative `margin-top`.  
+```CSS
+...
+.project-card .project-title-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 16px 8px;
+  margin-top: -5px;
+}
+```
+And finally, give our title a `font-size` equivalent to the `--p-font-size` variable we recently added:
+```CSS
+.project-card .project-title-container p {
+  font-size: var(--p-font-size);
+}
+```
 
-
+AWESOMEEEE. We have something that's starting to resemble a web page now!   
+But let's do something minor really quickly. Remember our nav how we added in those <b>anchor</b> (`<a>`) tags? Well we also added in some `ids` for each of our sections.   
+In the `about` and `projects` <b>anchor</b> `href`, let's add in the id name for each, prefixed by a `#`. This will tell our anchor to go to the id on this page that you specify. We'll also add a link to #contact:
+```HTML
+...
+    <nav class="nav"> <!-- Start Nav --> 
+      <ul class="nav-list">
+        <li>
+          <a href="#about">About</a>  
+         </li>
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+        <li>
+          <a href="#contact">Contact<a>
+        </li>
+      </ul>
+    </nav> <!-- END Nav -->
+...
+```
+Now try clicking each of the links :)
