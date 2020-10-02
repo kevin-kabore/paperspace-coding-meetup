@@ -173,16 +173,21 @@ Beautiful. Now let's switch back to HTML and add in content for the About Sectio
 ### HTML for the About Section
 - Add an `id` <b>property</b> of value "about" as well as a `class` <b>property</b> of "section about" to the opening `section`tag:  
 `<section id="about" class="section about">`
-- Inside the about `section` tag. Add an `h1` tag, a "self-closing" `img` tag with an `alt` <b>property</b> and `src` <b>property</b>, as well as a `p` tag. 
-- Give the `img` `alt` property a `value` of "Profile picture" and give the `src` property a value of "https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"
+- Inside the about `section` tag:
+1. Add an `h1` tag with text inside "Hi, my name is X"
+2. Add an opening and closing `div` with a <b>class name</b> of "profile-pic". Inside the `div`, add a "self-closing" `img` tag with an `alt` <b>property</b> and `src` <b>property</b>
+3. Give the `img` `alt` property a `value` of "Profile picture" and give the `src` property a value of "https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"
+4. Add a `p` tag with some text "I'm a web developer now!"
 
-Your about section will look like the below:
+Your about section will look something like this:
 ```HTML
 ...
   <section id="about" class="section about"> <!-- Start About -->
       <h1>Hi, my name is Kevin</h1>
-      <img alt="Profile pic" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+      <div class="profile-pic">
+        <img alt="Profile pic" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+      </div>
       <p>I'm a Frontend Engineer at Paperspace!</a>
-  </section> <!-- END About -->
+    </section> <!-- END About -->
 ...
 ```
