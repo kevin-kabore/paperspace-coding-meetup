@@ -4,38 +4,134 @@
     --main-red: #be3144;
     --main-blue: #45567d;
     --main-gray: #303841;
+    --h1-font-size: 38px;
+    --p-font-size: 24px;
   }
   
   /* Base reset */
-* {
+  * {
     margin: 0;
     padding: 0;
-}
+  }
   
-.nav {
+  /* Navigation styles start */
+  .nav {
     display: flex; 
     justify-content: flex-end;
     background-color: var(--main-red); /* Our variable for our red color */
     padding: 20px 25px; /* "20px of padding on the top and bottom, 25px on the left and right" */
-}
+  }
   
-.nav .nav-list {
+  .nav .nav-list {
     list-style: none; /* removes the bullet points */
     display: flex; 
-}
+  }
   
-.nav .nav-list li {
-    margin-left: 30px; /* 20px of space to the left of the element */
-}
+  .nav .nav-list li {
+      margin-left: 30px; /* 20px of space to the left of the element */
+  }
   
-.nav .nav-list li a {
+  .nav .nav-list li a {
     font-size: 24px; 
     text-decoration: none;
     color: var(--main-white); /* Our variable for our white color */
-}
+  }
   
-.nav .nav-list li a:hover {
+  .nav .nav-list li a:hover {
     color: var(--main-blue); /* Our variable for our white color */
-}
+  }
+  /* Navigation styles end */
   
+  /* Section styles */
+  .section {
+    padding: 20px 25px;
+  }
   
+  /* About section styles start */
+  .section.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    background-image: linear-gradient(to top right, #3a3d40, #181719);
+  }
+  
+  .section.about h1 {
+    color: var(--main-white);
+    font-size: var(--h1-font-size); 
+    margin-bottom: 16px;
+  }
+  
+  .section.about .profile-pic {
+    width: 225px;
+    margin: 0 auto;
+  }
+  
+  .section.about .profile-pic img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .section.about p {
+    font-size: var(--p-font-size);
+    margin-top: 16px;
+    color: var(--main-red)
+  }
+  /* About section styles end */
+  
+  /* Projects section styles start */
+  .section.projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 25px;
+    background-color: var(--main-blue);
+  }
+  
+  .section.projects .projects-header {
+    color: var(--main-white);
+    font-size: var(--h1-font-size);
+    margin: 0 auto 40px auto;
+    border-bottom: 4px solid var(--main-white);
+  }
+  
+  .section.projects .projects-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Project card styles start */
+  .project-card {
+    text-align: center;
+    margin: 0 16px;
+    color: var(--main-white);
+  }
+  .project-card:hover {
+    color: var(--main-red);
+    cursor: pointer;
+  }
+  .project-card .project-img-container {
+    width: 250px;
+  }
+  .project-card .project-img-container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .project-card .project-title-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 16px 8px;
+    margin-top: -5px;
+  }
+  
+  .project-card .project-title-container p {
+    font-size: var(--p-font-size);
+  }
+  
+  /* Project card styles end */
+  
+  /* Projects section styles end */
