@@ -258,3 +258,59 @@ Beautiful! We're starting to see somewhat of a page here, nice! Onto the project
 
 ## Projects
 
+### HTML for Projects
+Let's add an <b>id</b> of "projects" as well as two <b>classes</b>: "section" and "projects" to our `section`.
+Inside the projects section:
+- let's add an `h1` with a <b>class</b> of "projects-header" and some text "These are some of my projects"
+- Add a `div` with a <b>class</b> of "projects-container". We'll use this to contain our cards for all of our projects.
+
+Now, I know we don't have any projects yet - but let's lay this out with some dummy projects for now. 
+We'll add 4 "project-cards" to the "projects-container". We'll represent each of them like this, with the same image we used on the profile for now: 
+```HTML
+...
+    <div class="project-card">
+      <div class="project-img-container">
+        <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+      </div>
+      <p class="project-title">Title</p>
+    </div>
+...
+```
+Our complete HTML for this section will now look like this:
+```HTML
+...
+    <section id="projects" class="section projects"> <!-- Start Projects -->
+      <h1 class="projects-header">These are some of my projects</h1>
+      <div class="projects-container"> <!-- Start projects-container -->
+        <div class="project-card"> <!-- Start project-card -->
+          <div class="project-img-container">
+            <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+          </div>
+          <p class="project-title">Title</p>
+        </div> <!-- END project-card -->
+        
+        <div class="project-card"> <!-- Start project-card -->
+          <div class="project-img-container">
+            <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+          </div>
+          <p class="project-title">Title</p>
+        </div> <!-- END project-card -->
+        
+        <div class="project-card"> <!-- Start project-card -->
+          <div class="project-img-container">
+            <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+          </div>
+          <p class="project-title">Title</p>
+        </div> <!-- END project-card -->
+        
+        <div class="project-card"> <!-- Start project-card -->
+          <div class="project-img-container">
+            <img alt="project-img" src="https://cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png"/>
+          </div> 
+          <p class="project-title">Title</p>
+        </div> <!-- END project-card -->
+      </div> <!-- END projects-container -->
+    </section> <!-- End Projects -->
+...
+```
+
